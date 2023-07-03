@@ -23,7 +23,7 @@ client = discord.Client(intents=intents)
 client = commands.Bot(intents=intents,command_prefix="!")
 
 @client.command()
-async def mem_at(ctx):
+async def mem(ctx):
     secilen_dosya = random.choice(os.listdir('images'))
 
     f = open(f'images/{secilen_dosya}', "rb")
@@ -33,7 +33,7 @@ async def mem_at(ctx):
     await ctx.send(file=mem)
 
 @client.command()
-async def müzik_at(ctx):
+async def müzik(ctx):
     secilen_dosya = random.choice(os.listdir('musics'))
 
     f = open(f'musics/{secilen_dosya}', "rb")
@@ -42,7 +42,7 @@ async def müzik_at(ctx):
 
     await ctx.send(file=musics)
 
-def köpek_at():    
+def köpeks():    
     url = 'https://random.dog/woof.json'
     res = requests.get(url)
     data = res.json() 
@@ -52,9 +52,9 @@ def köpek_at():
 @client.command('köpek')
 async def köpek(ctx):
     '''duck komutunu çağırdığımızda, program ordek_resmi_urlsi_al fonksiyonunu çağırır.'''
-    image_url = köpek_at()
+    image_url = köpeks()
     await ctx.send(image_url)
-def ördek_at():    
+def ördeks():    
     url = 'https://random-d.uk/api/random'
     res = requests.get(url)
     data = res.json()
@@ -64,7 +64,9 @@ def ördek_at():
 @client.command("ördek")
 async def ördek(ctx):
     '''duck komutunu çağırdığımızda, program ordek_resmi_urlsi_al fonksiyonunu çağırır.'''
-    image_url = ördek_at()
+    image_url = ördeks()
     await ctx.send(image_url)
+
+
 
 
