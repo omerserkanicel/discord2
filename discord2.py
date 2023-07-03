@@ -42,16 +42,29 @@ async def müzik_at(ctx):
 
     await ctx.send(file=musics)
 
-def get_it_image_url():    
+def köpek_at():    
     url = 'https://random.dog/woof.json'
     res = requests.get(url)
     data = res.json() 
     return data['url']
    
 
-@client.command('it')
-async def it(ctx):
+@client.command('köpek')
+async def köpek(ctx):
     '''duck komutunu çağırdığımızda, program ordek_resmi_urlsi_al fonksiyonunu çağırır.'''
-    image_url = get_it_image_url()
+    image_url = köpek_at()
     await ctx.send(image_url)
+def ördek_at():    
+    url = 'https://random-d.uk/api/random'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
+
+
+@client.command("ördek")
+async def ördek(ctx):
+    '''duck komutunu çağırdığımızda, program ordek_resmi_urlsi_al fonksiyonunu çağırır.'''
+    image_url = ördek_at()
+    await ctx.send(image_url)
+
 
